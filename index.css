@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    height: 100vh;
+    background: linear-gradient(
+      to bottom right,
+      #ffddee,   /* Your Name - 부드러운 핑크 */
+      #cdeeff,   /* 날씨의 아이 - 맑은 하늘색 */
+      #ffcc99,   /* 스즈메 - 따뜻한 오렌지 */
+      #d1c4e9,   /* 센과 치히로 - 보라빛 연보라 */
+      #b2dfdb,   /* 토토로 - 숲 느낌의 그린 */
+      #bbdefb    /* 마무리 연한 블루 */
+    ), url('your-background-image.jpg'); /* 배경 이미지 */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;  /* 고정 배경 */
+}
+
+.main-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 어두운 오버레이 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    text-align: center;
+    max-width: 600px;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.quote {
+    font-size: 1.0rem;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.song-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.song-list li {
+    margin: 10px 0;
+}
+
+.song-list a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.song-list a:hover {
+    color: #f0a;
+}
+
+  #random-pick {
+    margin-top: 15px;
+    padding: 10px 16px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  #random-pick:hover {
+    background-color: #ddd;
+  }
+  
