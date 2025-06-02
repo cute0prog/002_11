@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감성 애니메이션 노래 리스트</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Play List</h1>
+    <ul class="song-list">
+      <li data-bg="1503034-1920x1080-desktop-full-hd-suzume-no-tojimari-wallpaper-image.jpg"> <a href="https://youtu.be/Xs0Lxif1u9E?feature=shared">すずめ</li>
+      <li data-bg="jack-berry-2bALbnjQ6mo-unsplash.jpg"> <a href="https://youtu.be/rTGlK5XB3Ko?feature=shared">すずめ piano cover</li>
+      <li data-bg="valentin-ciccarone-yelFfMczE00-unsplash.jpg"> <a href="https://youtu.be/fOu00p1i5fE?feature=shared">二人の時間</li>
+    </ul>
+    <audio id="audioPlayer" controls></audio>
+  </div>
+
+  <script>
+    const listItems = document.querySelectorAll('.song-list li');
+    const body = document.body;
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    listItems.forEach(item => {
+      // 마우스 오버 시 배경 전환
+      item.addEventListener('mouseover', () => {
+        const bg = item.getAttribute('data-bg');
+        body.style.backgroundImage = `url('${bg}')`;
+      });
+
+      // 마우스 아웃 시 기본 배경 복귀
+      item.addEventListener('mouseout', () => {
+        body.style.backgroundImage = `url('bg_default.jpg')`;
+      });
+
+      // 클릭 시 오디오 재생
+      item.addEventListener('click', () => {
+        const audioSrc = item.getAttribute('data-audio');
+        audioPlayer.src = audioSrc;
+        audioPlayer.play();
+      });
+    });
+  </script>
+</body>
+</html>

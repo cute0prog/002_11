@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션 노래 리스트</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="main-background">
+        <div class="overlay">
+            <div class="content">
+                <h1>Anime Song List</h1>
+                <small>좋아하던 노래가 몇 가지 있었는데 웹으로 정리하면 좋을거 같아서 주제로 설정</small>
+                <button id="random-pick">오늘의 추천곡</button>
+                <div id="recommendation-result"></div>
+                <ul class="song-list">
+                    <li><a href="wep programing 君の名は.html">君の名は。 (Your Name)</a></li>
+                    <li><a href="wep programing すずめの戸締まり.html">スズメの戸締まり (Suzume)</a></li>
+                    <li><a href="wep programing 千と千尋の神隠し.html">千と千尋の神隠し (Spirited Away)</a></li>
+                    <li><a href="wep programing となりのトトロ.html">となりのトトロ (My Neighbor Totoro)                    </a></li>
+                    <li><a href="wep programing 天気の子.html">天気の子 (Weathering with You)</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<script>
+const songData = {
+  '君の名は。': [{ title: 'Zenzenzense' }, { title: 'Sparkle' }],
+  'すずめの戸締まり': [{ title: 'Suzume' }, { title: 'Kanata Haluka' }]
+};
+
+document.getElementById('random-pick').addEventListener('click', () => {
+  const animeTitles = Object.keys(songData);
+  const randomAnime = animeTitles[Math.floor(Math.random() * animeTitles.length)];
+  const songs = songData[randomAnime];
+  const randomSong = songs[Math.floor(Math.random() * songs.length)];
+
+  document.getElementById('recommendation-result').textContent =
+    `오늘의 추천곡: 「${randomAnime}」의 '${randomSong.title}'`;
+});
+</script>
+</body>
+</html>

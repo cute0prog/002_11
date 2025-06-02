@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>君の名は</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Play List</h1>
+    <ul class="song-list">
+      <li data-bg="danny-greenberg-cvbp2a-huFE-unsplash.jpg"> <a href="https://youtu.be/PNfwBWD3sII?feature=shared">いのちの名前</li>
+      <li data-bg="spirited-away-no-face-chihiro-train-kkvgm6rgbp33zdn9.jpg"> <a href="https://youtu.be/YFxQvAG5tis?feature=shared">いのちの名前 piano cover</li>
+      <li data-bg="spirited-away-chihiro-haku-dragon-sky-desktop-wallpaper-4k.jpg"> <a href="https://youtu.be/5BAKAXp2sFg?feature=shared">いつも何度でも piano cover</li>
+    </ul>
+    <audio id="audioPlayer" controls></audio>
+  </div>
+
+  <script>
+    const listItems = document.querySelectorAll('.song-list li');
+    const body = document.body;
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    listItems.forEach(item => {
+      // 마우스 오버 시 배경 전환
+      item.addEventListener('mouseover', () => {
+        const bg = item.getAttribute('data-bg');
+        body.style.backgroundImage = `url('${bg}')`;
+      });
+
+      // 마우스 아웃 시 기본 배경 복귀
+      item.addEventListener('mouseout', () => {
+        body.style.backgroundImage = `url('bg_default.jpg')`;
+      });
+
+      // 클릭 시 오디오 재생
+      item.addEventListener('click', () => {
+        const audioSrc = item.getAttribute('data-audio');
+        audioPlayer.src = audioSrc;
+        audioPlayer.play();
+      });
+    });
+  </script>
+</body>
+</html>

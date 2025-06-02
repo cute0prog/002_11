@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>君の名は</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Play List</h1>
+    <ul class="song-list">
+      <li data-bg="aron-l-xNSpr8zoq_w-unsplash.jpg"><a href="https://youtu.be/_KoB4onMgQk?feature=shared" target="_blank">sparkle</li>
+      <li data-bg="bikash-debnath-xnkoroeaYxw-unsplash.jpg"> <a href="https://youtu.be/tb6Z9gtDa-I?feature=shared">sparkle piano cover</li>
+      <li data-bg="recal-media-ueBIGLmiI5A-unsplash.jpg"> <a href="https://youtu.be/n89SKAymNfA?feature=shared">なんでもないや</li>
+      <li data-bg="mohamed-khimji-2hGwOFy5boo-unsplash.jpg"> <a href="https://youtu.be/t3J2WU6j7wM?feature=shared&t=6">なんでもないや piano cover</li>
+      <li data-bg="transly-translation-agency-Ml6UYcr-i9k-unsplash.jpg"><a href="https://youtu.be/iP6ZABrm8Lo?feature=shared">三葉のテーマ</li>
+    </ul>
+    <audio id="audioPlayer" controls></audio>
+  </div>
+
+  <script>
+    const listItems = document.querySelectorAll('.song-list li');
+    const body = document.body;
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    listItems.forEach(item => {
+      // 마우스 오버 시 배경 전환
+      item.addEventListener('mouseover', () => {
+        const bg = item.getAttribute('data-bg');
+        body.style.backgroundImage = `url('${bg}')`;
+      });
+
+      // 마우스 아웃 시 기본 배경 복귀
+      item.addEventListener('mouseout', () => {
+        body.style.backgroundImage = `url('bg_default.jpg')`;
+      });
+
+      // 클릭 시 오디오 재생
+      item.addEventListener('click', () => {
+        const audioSrc = item.getAttribute('data-audio');
+        audioPlayer.src = audioSrc;
+        audioPlayer.play();
+      });
+    });
+  </script>
+</body>
+</html>
